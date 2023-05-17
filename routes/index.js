@@ -22,10 +22,10 @@ router.post('/api/join', async function(req,res,rows){
   }
 })
 
-router.post('api/login',async function(req, res){
-  console.log(req.body)
-  var [rows] = await connection.query("select * from user where id=? and password=?",
+router.post('/api/login',async function(req, res, rows){
+  var[rows] = await connection.query("select * from user where id=? and password=?",
     [req.body.id, req.body.password])
+  console.log(req.body.id)
   if(rows.length==0){//로그인 실패 - 아이디 또는 패스워드가 틀렸을 경우
     res.render('index', {message: "아이디 또는 패스워드가 틀렸습니다."})
 
@@ -35,4 +35,11 @@ router.post('api/login',async function(req, res){
 })
 
 
+router.get('/main',async function(req, res){
+  res.render('main')
+})
+
+router.get('/namecard/create',async function(req, res){
+  res.render('namecard_create')
+})
 module.exports = router;
