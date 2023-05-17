@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
     res.render('index');
 });
 router.get('/join',function(req,res){
-  res.render('join')
+  res.render('join',{message: null })
 })
 
 router.post('/api/join', async function(req,res,rows){
@@ -17,7 +17,7 @@ router.post('/api/join', async function(req,res,rows){
     [req.body.id, req.body.name, req.body.email, req.body.password])
  
   }else{//아이디 중복: 회원가입 불가
-
+    res.render('join',{message: "이미 가입되어있는 아이디 입니다."})
   }
   
   /* connection.query("select * from user where id=?",[req.body.id],function(err,rows){

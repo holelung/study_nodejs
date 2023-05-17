@@ -11,13 +11,18 @@
 </head>
 
 <body>
+        <% if(message){ %>
+            <script>
+                alert('<%= message %>');
+            </script>
+        <% } %>
     <div class="container">
         <form class="form" action="/api/join" method="post">
             <input name="id" type="text" class="form-control mt-2 mb-2" placeholder="아이디">
             <input name="name" type="text" class="form-control mt-2 mb-2" placeholder="이름">
             <input name="email" type="text" class="form-control mt-2 mb-2" placeholder="이메일">
             <input name="password" type="password" class="form-control " placeholder="비밀번호">
-
+  
             <div class="text-center mt-2">
                 <button type="submit" class="btn btn-primary">회원가입</button>
             </div>
