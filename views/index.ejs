@@ -9,13 +9,19 @@
     <title>Index</title>
 </head>
 <body>
+    <% if(message){ %>
+        <script>
+            alert('<%=message %>')
+        </script>
+    <% } %>
+
     <div class="container">
-        <form class="form" action="">
+        <form class="form" action="/api/login" method="post">
             <input name="id" type="text" class="form-control mt-2" placeholder="아이디">
             <input name="password" type="password" class="form-control mt-1" placeholder="비밀번호">
 
             <div class="text-center mt-2">
-                <button class="btn btn-primary">로그인</button>
+                <button type="submit" class="btn btn-primary">로그인</button>
                 <a class="btn btn-primary" href="/join">회원가입</a>
             </div>
         </form>
