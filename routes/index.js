@@ -42,4 +42,11 @@ router.get('/main',async function(req, res){
 router.get('/namecard/create',async function(req, res){
   res.render('namecard_create')
 })
+
+router.post('/api/namecard/create', async function(req, res, rows){
+  console.log(req.body)
+  await connection.query("insert into namecard(name, company, title, phone, email, address, web) values(?,?,?,?,?,?,?)",
+    [req.body.name, req.body.company, req.body.title, req.body.phone, req.body.email, req.body.address, req.body.web])
+})
+
 module.exports = router;

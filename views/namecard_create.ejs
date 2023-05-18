@@ -10,14 +10,14 @@
 </head>
 <body>
     <div class="container">
-        <form action="" class="form">
-            <input class="form-control" placeholder="이름" type="text">
-            <input class="form-control" placeholder="회사명" type="text">
-            <input class="form-control" placeholder="직책" type="text">
-            <input class="form-control" placeholder="전화번호" type="text">
-            <input class="form-control" placeholder="이메일" type="text">
-            <input class="form-control" placeholder="주소" type="text">
-            <input class="form-control" placeholder="홈페이지" type="text">
+        <form action="/api/namecard/create" method="post" class="form">
+            <input class="form-control mt-2" name="name" placeholder="이름" type="text">
+            <input class="form-control mt-2" name="company" placeholder="회사명" type="text">
+            <input class="form-control mt-2" name="title" placeholder="직책" type="text">
+            <input class="form-control mt-2" name="phone" placeholder="전화번호" type="text">
+            <input class="form-control mt-2" name="email" placeholder="이메일" type="text">
+            <input class="form-control mt-2" name="address" placeholder="주소" type="text">
+            <input class="form-control mt-2" name="web" placeholder="홈페이지" type="text">
 
             <div class="text-center mt-2">
                 <button type="submit" class="btn btn-primary">명함생성</button>
