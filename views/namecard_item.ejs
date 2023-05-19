@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>share</title>
+    <style>
+        .card{
+            border: 1px solid #eee;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        .name {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .company {
+            font-size: 25px;
+            margin-bottom: 40px;
+        }
+
+        .phone,
+        .email,
+        .address,
+        .web {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="name">
+            <%= namecard.name %>
+        </div>
+        <div class="company">
+            <%= namecard.company %>
+        </div>
+        <div class="phone">
+            <%= namecard.phone %>
+        </div>
+        <div class="email">
+            <%= namecard.email %>
+        </div>
+        <div class="address">
+            <%= namecard.address  %>
+        </div>
+        <div class="web">
+            <%= namecard.web %>
+        </div>
+    </div>
+    <% if(loginUserId==null){ //로그인이 안되있을 경우  %>
+        <a href="" class="btn btn-primary">로그인</a>
+    <% }else if(loginUserId!= namecard.userId){//로그인된 유저하고 사용자가 다를경우 %>
+        <a href="" class="btn btn-primary">내 명함첩에 넣기</a>
+    <% }else{ //로그인된 유저가 명함사용자와 같을경우 %>
+        <a href="" class="btn btn-primary">명함수정</a>
+        <a href="/api/logout" class="btn btn-danger">로그아웃</a>
+    <% } %>
+</body>
+</html>

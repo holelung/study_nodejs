@@ -21,6 +21,36 @@ async function getConnection(){
 }
 getConnection()
 
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+
+const options = {
+	host: 'localhost',
+	port: 3306,
+	user: 'root',
+	password: '335276',
+	database: 'webtest'
+};
+
+const sessionStore = new MySQLStore(options);
+
+app.use(session({
+	key: 'loginkey',
+	secret: 'itc801#',
+	store: sessionStore,
+	resave: false,
+	saveUninitialized: false
+}));
+
+// Optionally use onReady() to get a promise that resolves when store is ready.
+sessionStore.onReady().then(() => {
+	// MySQL session store ready for use.
+	console.log('MySQLStore ready');
+}).catch(error => {
+	// Something went wrong.
+	console.error(error);
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
